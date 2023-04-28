@@ -1,0 +1,105 @@
+require("dotenv").config();
+module.exports = {
+  kintone: {
+    domain: "https://wechatkintone.cybozu.cn",
+    apiToken: [
+      process.env.KINTONE_JIABAN,
+      process.env.KINTONE_QINGJIA,
+      process.env.KINTONE_DIANJIAN,
+      process.env.KINTONE_SCHEDULE,
+      process.env.KINTONE_USER,
+    ],
+    kintoneMapWechat: {
+      appId: 4,
+      fields: {
+        $id: "$id",
+        wechat_id: "wechat_id",
+        name: "name",
+      },
+    },
+    schedule: {
+      appId: 13,
+      fields: {
+        $id: "$id",
+        date: "date",
+        wechat_id: "wechat_id",
+        name: "name",
+        weizhi: "weizhi",
+        shebei: "shebei",
+        detail: "detail",
+      },
+    },
+    dianjian: {
+      appId: 9,
+      fields: {
+        $id: "$id",
+        date: "date",
+        user_name: "user_name",
+        wechat_id: "wechat_id",
+        step1: "step1",
+        step2: "step2",
+        step3: "step3",
+        step4: "step4",
+        status: "status",
+      },
+    },
+    approve: {
+      jiaban: {
+        appId: 11,
+        fields: {
+          $id: "$id",
+          wechat_id: "wechat_id",
+          status: "status",
+          sp_no: "sp_no",
+          begin: "begin",
+          end: "end",
+          duration: "duration",
+          note: "note",
+        },
+      },
+      qingjia: {
+        appId: 10,
+        fields: {
+          $id: "$id",
+          wechat_id: "wechat_id",
+          status: "status",
+          sp_no: "sp_no",
+          type: "type",
+          begin: "begin",
+          end: "end",
+          duration: "duration",
+          note: "note",
+          file: "file",
+        },
+      },
+    },
+  },
+  dianjian: {
+    baseUrl: "https://qyapi.weixin.qq.com/cgi-bin",
+    token: process.env.DIANJIAN_TOKEN,
+    encodingAESKey: process.env.DIANJIAN_ENCODEINGAESKEY,
+    agentID: process.env.DIANJIAN_AGENTID,
+    corpid: process.env.DIANJIAN_CORPID,
+    secret: process.env.DIANJIAN_SECRET,
+    redis_token_key: "wechat_token",
+  },
+  wechatApprove: {
+    baseUrl: "https://qyapi.weixin.qq.com/cgi-bin",
+    token: process.env.APPROVE_TOKEN,
+    encodingAESKey: process.env.APPROVE_ENCODEINGAESKEY,
+    agentID: process.env.APPROVE_AGENTID,
+    corpid: process.env.APPROVE_CORPID,
+    secret: process.env.APPROVE_SECRET,
+    redis_token_key: "approve_token",
+  },
+  redis: {
+    expire: 6000,
+  },
+  access_ip: [
+    "103.229.219.32",
+    "103.229.219.41",
+    "52.32.46.167",
+    "35.155.158.164",
+    "103.79.12.129",
+  ],
+};
